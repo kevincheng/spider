@@ -1,0 +1,15 @@
+*************
+ [inverter] [Errno 2] No such file or directory: 'aa'*********
+
+*************
+ [inverter] [Errno 2] No such file or directory: 'aa'
+*********
+
+*************
+ [inverter] [Errno 2] No such file or directory: 'aa'
+*********
+
+*******************
+2013-12-12 16:47:14 [inverter] [Errno 2] No such file or directory: 'aa'
+********************
+

@@ -1,0 +1,46 @@
+# -*- coding: utf-8 -*-
+import codecs
+import os
+import re
+import urllib2
+import sys
+sys.path.append('./lib')
+from pymmseg import mmseg 
+mmseg.dict_load_defaults()
+
+splitChars = '@@$$'
+wordSplitChars = '##'
+
+def segmentWords(sentence):
+    words = mmseg.Algorithm(sentence)
+    for word in words:
+        print word.text
+
+def invertIndex(wordFile):
+    wordIndex = dict
+    fp = codecs.open(wordFile, 'r', 'utf-8')
+    try:
+        for line in fp.readlines():
+            
+            content = line.split(splitChars)
+            if (len(content)) > 1:
+                index = content[0]
+                words = content[1].split(wordSplitChars)    
+                for i in range(len(words)):
+                    if not words[i] in wordIndex:
+                        wordIndex[words[i]] = list()
+                    wordIndex[words[i]].append(index)
+        fp.close()
+    except IOError, e:
+        print 'read file error'
+    return nameList
+
+def saveWordIndexToFile(wordIndexDict):
+    fp = open(wordIndexList, 'a')
+    try:
+        for key in wordIndexDict.keys():
+            fp.write('%s:%s' % (key, wordSplitChars.join(wordIndexList[i])))
+            fp.write('\n')
+    except IOError, e:
+        print e
+    fp.close()
